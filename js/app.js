@@ -78,27 +78,27 @@ const handleSearch = (event) => {
   let resultOfSearch = DATAS.filter((item) => item.title.search(value) > -1);
   render(resultOfSearch);
 };
-const handleAdd = (itemId) => {
+function handleAdd(itemId) {
   //   debugger;
 
   let filteredItem = DATAS.find((item) => item.id === +itemId);
   Favorites.push(filteredItem);
   console.log(Favorites);
   render(DATAS);
-};
+}
 const handleBack = () => {
   location.reload();
 };
 
-const handleRemove = (itemId) => {
+function handleRemove(itemId) {
   let newTemp = Favorites.filter((item) => item.id !== itemId);
   Favorites = newTemp;
   badge.textContent = Favorites.length;
 
   renderBasket();
-};
+}
 
-const renderBasket = () => {
+function renderBasket() {
   article.classList.add("d-none");
   features.classList.add("d-none");
   header.classList.remove("fixed-top");
@@ -131,4 +131,4 @@ const renderBasket = () => {
   </section>
   `;
   main.innerHTML = section;
-};
+}
